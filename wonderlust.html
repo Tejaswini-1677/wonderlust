@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Travel Cards</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .card-body {
+            background-color: #fff;
+        }
+        .card-title {
+            font-size: 1.25rem;
+            color: #333;
+        }
+        .card-text {
+            color: #777;
+        }
+        .card {
+            margin-bottom: 1.5rem;
+            border-radius: 10px;
+        }
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+        .container-fluid {
+            background-color: #5a3e36;
+        }
+        .card {
+    margin-bottom: 1.5rem;
+    border-radius: 10px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+}
+
+.card:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); 
+            transform: scale(1.05); 
+            cursor: pointer; 
+    }
+
+    
+   
+
+       
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-white shadow-sm">
+        <div class="container-fluid">
+            <a class="navbar-brand text-black fw-bold" href="#">Wanderlust</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about us.html">About Us</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Explore</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="desti.html">Top Destinations</a></li>
+                            <li><a class="dropdown-item" href="offer.html">Special Offers</a></li>
+                            <li><a class="dropdown-item" href="host.html">Host a Stay</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <!-- Center Search Bar -->
+                <div class="mx-auto" style="max-width: 600px; width: 100%; ">
+                    <form class="d-flex" role="search">
+                      <input class="form-control me-2 flex-grow-1" type="search" placeholder="Search..." aria-label="Search">
+                      <button class="btn btn-outline-danger" type="submit">Search</button>
+                    </form>
+                  </div>
+
+                <!-- Right-aligned Sign In / Logout Dropdown -->
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                        Account
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <li><a class="dropdown-item" href="sign in.html">Sign In</a></li>
+                        <li><a class="dropdown-item" href="login.html">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5 ">
+        <h4>Amazing Views</h4>
+        <div class="row" id="cardcontainer"></div>
+    </div>
+
+    <footer class="bg-light text-center p-3 mt-4">
+        <p class="mb-0">&copy; 2025 Wanderlust | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </footer>
+
+    <script>
+        const destinations = [
+            { imgUrl: 'https://images.unsplash.com/photo-1552733407-5d5c46c3bb3b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60', title: 'Cozy Beachfront Cottage', distance: '77 kilometers away', price: '₹5,478/night', location: '"Malibu", United States', detailsLink: 'details.html' },
+            { imgUrl: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8aG90ZWxzfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60', title: 'Mountain Retreat', distance: '89 kilometers away', price: '₹3,478/day', location: '"Portland", United States', detailsLink: 'details1.html' },
+            { imgUrl: 'https://images.unsplash.com/photo-1622396481328-9b1b78cdd9fd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c2t5JTIwdmFjYXRpb258ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60', title: 'Luxury Penthouse with City Views', distance: '89 kilometers away', price: '₹5,478/day', location: '"Los Angeles", United States', detailsLink: 'details2.html' },
+            { imgUrl: 'https://images.unsplash.com/photo-1502784444187-359ac186c5bb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHNreSUyMHZhY2F0aW9ufGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60', title: 'Ski-In/Ski-Out Chalet', distance: '34 kilometers away', price: '₹2,478/day', location: '"Verbier", Switzerland', detailsLink: 'details3.html' },
+            { imgUrl: 'http://www.pacificresort.com/wp-content/uploads/2017/03/22.-Te-Manava-Luxury-Villas-Spa-Ultimate-beachfront-villa-courtyard.jpg', title: 'Oceanfront Villa', distance: '150 kilometers away', price: '₹12,478/night', location: '"Bora Bora", French Polynesia', detailsLink: 'details4.html' },
+            { imgUrl: 'https://tse4.mm.bing.net/th?id=OIP.tCVVnZZzeNnWAaVdk9gUAgHaE8&pid=Api&P=0&h=180', title: 'Forest Treehouse', distance: '210 kilometers away', price: '₹8,478/night', location: '"Vancouver", Canada', detailsLink: 'details5.html' },
+            { imgUrl: 'https://tse1.mm.bing.net/th?id=OIP.FlzYhkxyzzrpu6Hh6aDXpQHaE8&pid=Api&P=0&h=180', title: 'Luxury Safari Lodge', distance: '320 kilometers away', price: '₹15,478/night', location: '"Masai Mara", Kenya', detailsLink: 'details6.html' },
+           
+            { imgUrl: 'https://tse3.mm.bing.net/th?id=OIP.HzK-N5Ewd-a0rdajH-ktVAHaEK&pid=Api&P=0&h=180', title: 'Secluded Forest Cabin', distance: '100 kilometers away', price: '₹3,200/night', location: '"Bavaria", Germany', detailsLink: 'details7.html' },
+            { imgUrl: 'https://tse2.mm.bing.net/th?id=OIP.2UIlGb36xNYKal0976ZVsgHaE6&pid=Api&P=0&h=180', title: 'Urban Loft in New York', distance: '1 kilometer away', price: '₹7,500/night', location: '"New York", United States', detailsLink: 'details8.html' },
+            { imgUrl: 'https://tse2.mm.bing.net/th?id=OIP.Co4k-fKDgAtdV6CjGmaKDgHaF5&pid=Api&P=0&h=180', title: 'The Hidden Garden', distance: '58 kilometers away', price: '₹6,250/night', location: '"Paris", France', detailsLink: 'details9.html' },
+            { imgUrl: 'https://tse1.mm.bing.net/th?id=OIP._omHIx9gYIcpvoC4B9oDigHaFX&pid=Api&P=0&h=180', title: 'Beachfront Mansion', distance: '48 kilometers away', price: '₹10,500/night', location: '"Miami", United States', detailsLink: 'details10.html' },
+            { imgUrl: 'https://tse2.mm.bing.net/th?id=OIP.VyR20M2LC03QcQkkODzLzgHaFk&pid=Api&P=0&h=180', title: 'Art Deco Loft', distance: '35 kilometers away', price: '₹4,800/night', location: '"Barcelona", Spain', detailsLink: 'details11.html' },
+            { imgUrl: 'https://tse1.mm.bing.net/th?id=OIP.ah82eQmvWkZzOxa_8j7vcAHaE6&pid=Api&P=0&h=180', title: 'Mountain Chalet', distance: '122 kilometers away', price: '₹9,000/night', location: '"Aspen", United States', detailsLink: 'details12.html' },
+            { imgUrl: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=60', title: 'Desert Dome Stay', distance: '220 kilometers away', price: '₹6,700/night', location: '"Dubai", UAE', detailsLink: 'details13.html' },
+{ imgUrl: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=60', title: 'Icelandic Aurora House', distance: '980 kilometers away', price: '₹9,300/night', location: '"Reykjavik", Iceland', detailsLink: 'details14.html' },
+{ imgUrl: 'https://tse4.mm.bing.net/th?id=OIP.0Ww2oBbwpgzwNrQit3FClgHaE8&pid=Api&P=0&h=180', title: 'Jungle Treehouse', distance: '400 kilometers away', price: '₹4,200/night', location: '"Amazon", Brazil', detailsLink: 'details15.html' },
+{ imgUrl: 'https://tse3.mm.bing.net/th?id=OIP.FFE2G0pYQfvtWkIK9mX9wQHaE7&pid=Api&P=0&h=180', title: 'Alpine Snow Lodge', distance: '670 kilometers away', price: '₹7,800/night', location: '"Zermatt", Switzerland', detailsLink: 'details16.html' },
+{ imgUrl: 'https://tse3.mm.bing.net/th?id=OIP.Hztzr0tPIrJfbhzeebcsuAHaFj&pid=Api&P=0&h=180', title: 'Greek Cliffside Stay', distance: '850 kilometers away', price: '₹5,900/night', location: '"Santorini", Greece', detailsLink: 'details17.html' },
+{ imgUrl: 'https://images.unsplash.com/photo-1560347876-aeef00ee58a1?auto=format&fit=crop&w=800&q=60', title: 'Tokyo City View Flat', distance: '12 kilometers away', price: '₹6,200/night', location: '"Tokyo", Japan', detailsLink: 'details18.html' },
+{ imgUrl: 'https://tse2.mm.bing.net/th?id=OIP.GkEvIaFx5bI4ac1Ty7HqYAHaE8&pid=Api&P=0&h=180', title: 'Lakeview Chalet', distance: '510 kilometers away', price: '₹4,500/night', location: '"Lucerne", Switzerland', detailsLink: 'details19.html' },
+{ imgUrl: 'https://tse3.mm.bing.net/th?id=OIP.q9t_gbkHJ19NOOP25iK71AHaFj&pid=Api&P=0&h=180', title: 'Tropical Bungalow', distance: '135 kilometers away', price: '₹3,800/night', location: '"Bali", Indonesia', detailsLink: 'details20.html' },
+{ imgUrl: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=800&q=60', title: 'Moroccan Riad', distance: '600 kilometers away', price: '₹5,100/night', location: '"Marrakech", Morocco', detailsLink: 'details21.html' },
+{ imgUrl: 'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=800&q=60', title: 'Island Cliff Hut', distance: '300 kilometers away', price: '₹2,900/night', location: '"El Nido", Philippines', detailsLink: 'details22.html' },
+{ imgUrl: 'https://tse4.mm.bing.net/th?id=OIP.Cy_0vsxk9HjXPBlEyTg1zAHaEf&pid=Api&P=0&h=180', title: 'Northern Lights Pod', distance: '1100 kilometers away', price: '₹8,500/night', location: '"Tromsø", Norway', detailsLink: 'details23.html' },
+{ imgUrl: 'https://tse1.mm.bing.net/th?id=OIP.eXEyZKnRuleQL1F-Qru8NQHaEH&pid=Api&P=0&h=180', title: 'Countryside Windmill Stay', distance: '430 kilometers away', price: '₹4,000/night', location: '"Amsterdam", Netherlands', detailsLink: 'details24.html' },
+{ imgUrl: 'https://tse2.mm.bing.net/th?id=OIP.0UTnQxf26aZEOil5sp8P0gEsC_&pid=Api&P=0&h=180', title: 'Mediterranean Blue House', distance: '710 kilometers away', price: '₹5,400/night', location: '"Cinque Terre", Italy', detailsLink: 'details25.html' },
+{ imgUrl: 'https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=800&q=60', title: 'Floating River Stay', distance: '190 kilometers away', price: '₹3,300/night', location: '"Kerala", India', detailsLink: 'details26.html' },
+{ imgUrl: 'https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?auto=format&fit=crop&w=800&q=60', title: 'Rustic Vineyard Home', distance: '510 kilometers away', price: '₹6,000/night', location: '"Tuscany", Italy', detailsLink: 'details27.html' },
+{ imgUrl: 'https://tse4.mm.bing.net/th?id=OIP.bUekc_tdIf5gzWlPHRb9rwHaE8&pid=Api&P=0&h=180', title: 'Jungle River Hut', distance: '270 kilometers away', price: '₹3,950/night', location: '"Chiang Mai", Thailand', detailsLink: 'details28.html' },
+{ imgUrl: 'https://tse4.mm.bing.net/th?id=OIP.RD8P_0KGctsYkzHfoVefxgHaFb&pid=Api&P=0&h=180', title: 'Glass House Retreat', distance: '820 kilometers away', price: '₹7,750/night', location: '"Stockholm", Sweden', detailsLink: 'details29.html' },
+{ imgUrl: 'https://up.yimg.com/ib/th?id=OIP.7J-x40DTwQYT43U0xSHzYwHaDy&pid=Api&rs=1&c=1&qlt=95&w=200&h=102', title: 'Private Safari Tent', distance: '590 kilometers away', price: '₹6,200/night', location: '"Serengeti", Tanzania', detailsLink: 'details30.html' },
+{ imgUrl: 'https://tse1.mm.bing.net/th?id=OIP.dDkaywTWR5PWIrUx1l-yTQHaEK&pid=Api&P=0&h=180', title: 'Countryside Farmhouse', distance: '190 kilometers away', price: '₹3,600/night', location: '"Punjab", India', detailsLink: 'details31.html' },
+{ imgUrl: 'https://tse4.mm.bing.net/th?id=OIP.vK6jzcwTKO4uLa3lpi4CCgHaEK&pid=Api&P=0&h=180', title: 'Ocean View Cliff Villa', distance: '740 kilometers away', price: '₹9,800/night', location: '"Cape Town", South Africa', detailsLink: 'details32.html' },
+          
+            {
+    title: "Desert Safari Camp",
+    location: "Rajasthan, India",
+    distance: "420 km away",
+    price: "₹3,500/night",
+    imgUrl: "https://tse3.mm.bing.net/th?id=OIP.JR2Kf9WxcvMrNKXdHRRa9QHaE7&pid=Api&P=0&h=180",
+    detailsLink: "#"
+},
+{
+    title: "Forest Treehouse",
+    location: "Wayanad, Kerala",
+    distance: "780 km away",
+    price: "₹6,200/night",
+    imgUrl: "https://tse2.mm.bing.net/th?id=OIP.5waSwMmIvvSQTHg0oFx4GAHaFj&pid=Api&P=0&h=180",
+    detailsLink: "#"
+},
+{
+    title: "Snowy Chalet",
+    location: "Gulmarg, Kashmir",
+    distance: "1,150 km away",
+    price: "₹8,900/night",
+    imgUrl: "https://tse2.mm.bing.net/th?id=OIP.LLaB8HL4922Sm7l-8ApNQAAAAA&pid=Api&P=0&h=180",
+    detailsLink: "#"
+}
+
+        ];
+        
+
+        window.addEventListener('DOMContentLoaded', () => {
+  const container = document.getElementById('cardcontainer');
+
+  destinations.forEach(dest => {
+    const col = document.createElement('div');
+    col.className = 'col-md-4 mb-3';
+
+    col.innerHTML = `
+      <div class="card h-100 shadow-sm mb-3">
+        <img src="${dest.imgUrl}" class="card-img-top" alt="${dest.title}">
+        <div class="card-body">
+          <h5 class="card-title">${dest.title}</h5>
+          <p class="card-text">${dest.location}</p>
+          <p class="card-text text-muted">${dest.distance}</p>
+          <p class="card-text fw-bold">${dest.price}</p>
+          <a href="${dest.detailsLink}" class="btn btn-primary">View Details</a>
+        </div>
+      </div>
+    `;
+
+    container.appendChild(col);
+  });
+});
+</script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
