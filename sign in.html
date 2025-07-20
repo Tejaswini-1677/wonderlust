@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In (JavaScript)</title>
+</head>
+
+<body>
+    <script>
+       
+        const style = document.createElement('style');
+        style.textContent = `
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                background: #f5f1e3;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 600px;
+            }
+            .signin-container {
+                background: white;
+                padding: 20px;
+                box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+                border-radius: 8px;
+                width: 350px;
+                text-align: center;
+            }
+            .signin-container h2 {
+                margin-bottom: 15px;
+                color: #8b5e3b;
+            }
+            .signin-container input {
+                width: 300px;
+                padding: 10px;
+                margin: 8px 0;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+            }
+            .signin-container button {
+                width: 100%;
+                padding: 10px;
+                background: #8b5e3b;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                margin-top: 10px;
+            }
+            .signin-container button:hover {
+                background: #5a3e36;
+            }
+            .signin-container p {
+                margin-top: 10px;
+            }
+            .signin-container a {
+                color: #8b5e3b;
+                text-decoration: none;
+            }
+        `;
+        document.head.appendChild(style);
+
+       
+        const container = document.createElement('div');
+        container.className = 'signin-container';
+
+      
+        const title = document.createElement('h2');
+        title.textContent = 'Sign In';
+        container.appendChild(title);
+
+     
+        const form = document.createElement('form');
+        form.addEventListener('submit', function (event) {
+    event.preventDefault(); 
+    window.location.href = 'wonderlust.html'; 
+});
+
+        const emailInput = document.createElement('input');
+        emailInput.type = 'email';
+        emailInput.placeholder = 'Email';
+        emailInput.required = true;
+
+        const passwordInput = document.createElement('input');
+        passwordInput.type = 'password';
+        passwordInput.placeholder = 'Password';
+        passwordInput.required = true;
+
+        const button = document.createElement('button');
+        button.type = 'submit';
+        button.textContent = 'Sign In';
+
+        form.appendChild(emailInput);
+        form.appendChild(passwordInput);
+        form.appendChild(button);
+
+        container.appendChild(form);
+
+      
+        const para = document.createElement('p');
+        para.innerHTML = `Don't have an account? <a href="register.html">Register</a>`;
+        container.appendChild(para);
+
+        document.body.appendChild(container);
+    </script>
+</body>
+
+</html>

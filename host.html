@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Host a Stay - ITCART Travel</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f0f8ff; /* Light soft background */
+      font-family: 'Poppins', sans-serif;
+    }
+    .section-heading {
+      margin-top: 50px;
+      margin-bottom: 30px;
+      text-align: center;
+      font-weight: bold;
+      color: #8b5e3b;
+    }
+    .navbar {
+      background-color: #8b5e3b;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    .navbar-brand {
+      color: white;
+      font-weight: bold;
+      text-align: center;
+      margin: 0 auto;
+      font-size: 30px;
+    }
+    .form-container {
+      background-color: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .form-control {
+      margin-bottom: 15px;
+    }
+    .btn-primary {
+      background-color: #8b5e3b;
+      color: white;
+      border: none;
+      transition: background-color 0.3s;
+    }
+    .btn-primary:hover {
+      background-color: #5a3e36;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg">
+  <div class="container">
+    <a class="navbar-brand" href="wonderlust.html">Host a Stay</a>
+  </div>
+</nav>
+
+<!-- Host a Stay Form -->
+<div class="container">
+  <h2 class="section-heading">Become a Host</h2>
+  <div class="form-container">
+    <form action="#" method="POST">
+      
+      <!-- Property Name -->
+      <div class="mb-3">
+        <label for="propertyName" class="form-label">Property Name</label>
+        <input type="text" class="form-control" id="propertyName" placeholder="Enter property name" required>
+      </div>
+
+      <!-- Property Type -->
+      <div class="mb-3">
+        <label for="propertyType" class="form-label">Property Type</label>
+        <select class="form-control" id="propertyType" required>
+          <option value="beachfront-cottage">Beachfront Cottage</option>
+          <option value="mountain-retreat">Mountain Retreat</option>
+          <option value="luxury-villa">Luxury Villa</option>
+          <option value="exotic-getaway">Exotic Getaway</option>
+        </select>
+      </div>
+
+      <!-- Location -->
+      <div class="mb-3">
+        <label for="location" class="form-label">Location</label>
+        <input type="text" class="form-control" id="location" placeholder="Enter property location" required>
+      </div>
+
+      <!-- Number of Bedrooms -->
+      <div class="mb-3">
+        <label for="bedrooms" class="form-label">Number of Bedrooms</label>
+        <input type="number" class="form-control" id="bedrooms" placeholder="Enter number of bedrooms" required>
+      </div>
+
+      <!-- Number of Bathrooms -->
+      <div class="mb-3">
+        <label for="bathrooms" class="form-label">Number of Bathrooms</label>
+        <input type="number" class="form-control" id="bathrooms" placeholder="Enter number of bathrooms" required>
+      </div>
+
+      <!-- Price per Night -->
+      <div class="mb-3">
+        <label for="price" class="form-label">Price per Night</label>
+        <input type="number" class="form-control" id="price" placeholder="Enter price per night" required>
+      </div>
+
+      <!-- Amenities -->
+      <div class="mb-3">
+        <label for="amenities" class="form-label">Amenities (Check all that apply)</label><br>
+        <input type="checkbox" id="wifi" value="WiFi"> WiFi <br>
+        <input type="checkbox" id="pool" value="Swimming Pool"> Swimming Pool <br>
+        <input type="checkbox" id="parking" value="Free Parking"> Free Parking <br>
+        <input type="checkbox" id="gym" value="Gym"> Gym <br>
+        <input type="checkbox" id="pets" value="Pet-Friendly"> Pet-Friendly <br>
+      </div>
+
+      <!-- Description -->
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea class="form-control" id="description" rows="4" placeholder="Write a description of your property" required></textarea>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" class="btn btn-primary w-100">Submit Property</button>
+    </form>
+  </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

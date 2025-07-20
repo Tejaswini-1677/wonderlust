@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logout</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f1e3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 400px;
+            width: 100%;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background: white;
+            text-align: center;
+        }
+
+        a {
+            display: block;
+            margin: 10px;
+            padding: 10px;
+            text-decoration: none;
+            color: white;
+            background:  #8b5e3b;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        a:hover {
+            background: #6a3e2d;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="logout-container"></div>
+
+    <script>
+      
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('logout-container');
+
+            
+            const div = document.createElement('div');
+            div.className = 'container';
+            container.appendChild(div);
+
+            
+            const heading = document.createElement('h2');
+            heading.textContent = 'You have logged out';
+            div.appendChild(heading);
+
+            
+            const paragraph = document.createElement('p');
+            paragraph.textContent = 'See you next time!';
+            div.appendChild(paragraph);
+
+           
+            const signInLink = document.createElement('a');
+            signInLink.href = 'sign in.html';
+            signInLink.textContent = 'Sign In Again';
+            div.appendChild(signInLink);
+
+           
+            const backToHomeLink = document.createElement('a');
+            backToHomeLink.href = 'wonderlust.html';
+            backToHomeLink.textContent = 'Back to Home';
+            div.appendChild(backToHomeLink);
+        });
+    </script>
+
+</body>
+</html>
